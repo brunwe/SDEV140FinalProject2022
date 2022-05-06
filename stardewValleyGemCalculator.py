@@ -301,17 +301,14 @@ class App(tk.Frame):
     # this calculates the grand total
     def calculate_total(self):
         if not self.gemologist:
-            self.grand_total = (self.topaz_value * 80) + (self.amethyst_value * 100) + \
-                               (self.aquamarine_value * 180) + (self.jade_value * 200) + \
-                               (self.emerald_value * 250) + (self.ruby_value * 250) + \
-                               (self.diamond_value * 750) + (self.prism_value * 2000)
+            self.grand_total = (self.topaz_value * 80) + (self.amethyst_value * 100) + (self.aquamarine_value * 180) + (self.jade_value * 200) + (self.emerald_value * 250) + (self.ruby_value * 250) + (self.diamond_value * 750) + (self.prism_value * 2000)
             self.canvas.itemconfig(self.grand_total_text, text=self.grand_total)
+            return
         else:
-            self.grand_total = int((self.topaz_value * 80) + (self.amethyst_value * 100) +
-                                   (self.aquamarine_value * 180) + (self.jade_value * 200) +
-                                   (self.emerald_value * 250) + (self.ruby_value * 250) +
-                                   (self.diamond_value * 750) + (self.prism_value * 2000) * 1.3)
+            self.grand_total = (self.topaz_value * 80) + (self.amethyst_value * 100) + (self.aquamarine_value * 180) + (self.jade_value * 200) + (self.emerald_value * 250) + (self.ruby_value * 250) + (self.diamond_value * 750) + (self.prism_value * 2000)
+            self.grand_total = int((self.grand_total * 1.3))
             self.canvas.itemconfig(self.grand_total_text, text=self.grand_total)
+            return
 
 
 # this is the setup for my about window that is opened upon button press
